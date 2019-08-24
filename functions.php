@@ -126,3 +126,10 @@ add_filter('the_content', function($the_content) {
     }
     return $the_content;
 });
+
+// 記事ページにサムネイルを表示
+add_action('genesis_entry_content', function() {
+	if (is_single()) {
+		return the_post_thumbnail();
+	}
+}, 9);
